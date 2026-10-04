@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Upload</title>
+    <meta name="description" content="Student upload register for tracking student details." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top-banner">
+      <div class="banner-inner">
+        <div class="title-wrap">
+          <p class="eyebrow">Student management</p>
+          <h1>Student Upload</h1>
+        </div>
+        <div class="count-pill" aria-live="polite">
+          <span class="count-label">Students</span>
+          <span id="studentCount" class="count-number">0</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="panel form-panel">
+        <h2>Add a Student</h2>
+
+        <form id="studentForm" novalidate>
+          <div class="field-wrap">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="e.g. Effa Divine" />
+            <small id="nameError" class="error"></small>
+          </div>
+
+          <div class="field-wrap">
+            <label for="matric">Matric number</label>
+            <input id="matric" name="matric" type="text" inputmode="text" placeholder="23/024145123" />
+            <small id="matricError" class="error"></small>
+          </div>
+
+          <div class="field-wrap">
+            <label for="level">Level</label>
+            <select id="level" name="level">
+              <option value="">Choose level</option>
+              <option value="100">100 Level</option>
+              <option value="200">200 Level</option>
+              <option value="300">300 Level</option>
+              <option value="400">400 Level</option>
+              <option value="500">500 Level</option>
+              <option value="600">600 Level</option>
+            </select>
+            <small id="levelError" class="error"></small>
+          </div>
+
+          <div class="field-wrap">
+            <label for="department">Department</label>
+            <input id="department" name="department" type="text" list="departments" placeholder="e.g. Computer Science" />
+            <datalist id="departments">
+              <option value="Computer Science"></option>
+              <option value="Accounting"></option>
+              <option value="Mass Communication"></option>
+              <option value="Biology"></option>
+              <option value="Business Administration"></option>
+              <option value="Economics"></option>
+              <option value="Electrical Engineering"></option>
+              <option value="Political Science"></option>
+              <option value="Microbiology"></option>
+              <option value="Mathematics"></option>
+            </datalist>
+            <small id="departmentError" class="error"></small>
+          </div>
+
+          <div class="button-row">
+            <button type="submit" class="primary-btn">Add student</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel register-panel">
+        <div class="panel-header">
+          <h2>Student register</h2>
+          <button id="toggleNamesBtn" type="button" class="secondary-btn">Done, show names</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Matric no.</th>
+                <th>Level</th>
+                <th>Department</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+          </table>
+        </div>
+
+        <div id="emptyState" class="empty-state hidden">
+          <p>No student has been added yet.</p>
+          <button id="sampleBtn" type="button" class="ghost-btn">Add 3 sample students</button>
+        </div>
+
+        <div id="namePanel" class="name-panel hidden" aria-live="polite">
+          <h3>Student names</h3>
+          <ul id="nameList"></ul>
+        </div>
+
+        <div class="action-row">
+          <button id="removeLastBtn" type="button" class="navy-btn" disabled>Remove last</button>
+        </div>
+
+        <p id="statusMessage" class="status-message" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
